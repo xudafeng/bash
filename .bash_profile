@@ -45,3 +45,12 @@ export JAVA_HOME
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 nvm use system
+
+##
+# Your previous /Users/xdf/.bash_profile file was backed up as /Users/xdf/.bash_profile.macports-saved_2015-08-06_at_16:19:20
+##
+
+# MacPorts Installer addition on 2015-08-06_at_16:19:20: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
