@@ -42,9 +42,8 @@ ANDROID_HOME="/opt/android-sdks"
 export ANDROID_HOME
 JAVA_HOME=`/usr/libexec/java_home`
 export JAVA_HOME
-
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-nvm use system
 
 ##
 # Your previous /Users/xdf/.bash_profile file was backed up as /Users/xdf/.bash_profile.macports-saved_2015-08-06_at_16:19:20
