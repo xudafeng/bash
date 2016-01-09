@@ -2,9 +2,9 @@
 red_start="\[\e[31m\033[1m\]"
 cyan_start="\[\e[36m\033[1m\]"
 color_end="\[\e[0m\]"
-export LSCOLORS="gxfxcxdxbxegedabagacad"
-export ACK_COLOR_MATCH='green bold'
-export ACK_COLOR_FILENAME='magenta underline bold'
+export CLICOLOR=1
+export TERM=xterm-256color
+export LSCOLORS=gxfxcxdxbxegedabagacad
 export PATH="~/prjs/Qt/5.3/clang_64/bin":$PATH
 # aliases
 alias ..="cd .."
