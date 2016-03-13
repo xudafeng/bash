@@ -13,15 +13,15 @@ fi
 ## aliases
 alias ls="ls -a -G"
 alias ll="ls -l"
-alias please="sudo"
 alias gitpull="git pull"
 alias gitpush="git push"
 alias qmake="~/prjs/Qt/5.3/clang_64/bin/qmake"
 alias godoc="echo ➟ godoc is running … && open http://localhost:6060/doc/ && godoc -http=:6060"
 alias update="curl -o- https://raw.githubusercontent.com/xudafeng/bash/master/install.sh | bash && source ~/.bash_profile"
-alias todo="cd ~/prjs/todo && startserver -m"
+alias archive="cd ~/prjs/archive"
+alias book="cd ~/prjs/525"
 ## mvn
-MVNBIN="/opt/apache-maven-3.2.3/bin/mvn"
+MVNBIN="/opt/apache-maven-3.0.5/bin/mvn"
 if [ -f $MVNBIN ]; then
   alias mvn=$MVNBIN
 fi
@@ -32,6 +32,13 @@ SUBLIMEBIN="/Applications/Sublime.app/Contents/SharedSupport/bin/subl"
 if [ -f $SUBLIMEBIN ]; then
   alias sublime=${SUBLIMEBIN}" ."
 fi
+## visual code
+VISUALSTUDIOCODE="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
+
+if [[ -f $VISUALSTUDIOCODE ]]; then
+  alias code="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code ."
+fi
+
 # git branch
 get_git_branch() {
   echo $(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/')
@@ -42,6 +49,7 @@ get_node_version() {
   node_version=$(node -v 2>/dev/null)
   echo ${node_version:1}
 }
+# nvm
 export NVM_NODEJS_ORG_MIRROR="http://npm.taobao.org/dist"
 export NVM_DIR=$HOME"/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
@@ -51,48 +59,23 @@ export PS1
 export PKG_CONFIG_PATH="/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig/"
 
 ## Android SDK
-ANDROID_HOME="/opt/android-sdks"
+ANDROID_HOME="/usr/local/opt/android-sdk"
 if [ -d $ANDROID_HOME ]; then
   export ANDROID_HOME
   alias adb=$ANDROID_HOME"/platform-tools/adb"
 fi
 ## JAVA HOME
-JAVA_HOME=`/usr/libexec/java_home`
+JAVA_HOME=`/usr/libexec/java_home -v '1.8*'`
 if [ -d $JAVA_HOME ]; then
   export JAVA_HOME
 fi
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
-## Docker
-VM=default
-DOCKER_MACHINE=/usr/local/bin/docker-machine
-VBOXMANAGE=/Applications/VirtualBox.app/Contents/MacOS/VBoxManage
+export HADOOP_HOME=/opt/hadoop-2.7.3
 
-BLUE='\033[0;34m'
-GREEN='\033[0;32m'
-NC='\033[0m'
+export HADOOP_PREFIX=/opt/hadoop-2.7.3
 
-unset DYLD_LIBRARY_PATH
-unset LD_LIBRARY_PATH
-
-if [ -f $DOCKER_MACHINE ] && [ -f $VBOXMANAGE ]; then
-  $VBOXMANAGE showvminfo $VM &> /dev/null
-  VM_EXISTS_CODE=$?
-
-  if [ $VM_EXISTS_CODE -eq 1 ]; then
-    $DOCKER_MACHINE rm -f $VM &> /dev/null
-    rm -rf ~/.docker/machine/machines/$VM
-    $DOCKER_MACHINE create -d virtualbox --virtualbox-memory 2048 --virtualbox-disk-size 204800 $VM
-  fi
-
-  VM_STATUS=$($DOCKER_MACHINE status $VM 2>&1)
-  if [ "$VM_STATUS" != "Running" ]; then
-    $DOCKER_MACHINE start $VM
-    yes | $DOCKER_MACHINE regenerate-certs $VM
-  fi
-
-  eval $($DOCKER_MACHINE env --shell=bash $VM)
-  echo -e "Hi $LOGNAME, docker is ready to use the ${GREEN}$VM${NC} machine with IP ${GREEN}$($DOCKER_MACHINE ip $VM)${NC}."
-fi
+export PATH=$PATH:$HADOOP_HOME/bin
