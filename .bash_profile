@@ -36,7 +36,7 @@ fi
 VISUALSTUDIOCODE="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
 
 if [[ -f $VISUALSTUDIOCODE ]]; then
-  alias code="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code ."
+  alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code ."
 fi
 
 # git branch
