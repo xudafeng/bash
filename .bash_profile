@@ -1,7 +1,4 @@
 ## color
-red_start="\[\e[31m\033[1m\]"
-cyan_start="\[\e[36m\033[1m\]"
-color_end="\[\e[0m\]"
 export CLICOLOR=1
 export TERM=xterm-256color
 export LSCOLORS=gxfxcxdxbxegedabagacad
@@ -41,25 +38,25 @@ fi
 
 # git branch
 get_git_branch() {
-  echo $(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/')
+  echo $(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/') | node ~/.bash/scripts/color.js --color red 2>/dev/null
 }
 # node
 get_node_version() {
   local node_version
   node_version=$(node -v 2>/dev/null)
-  echo ${node_version:1}
+  echo ${node_version:1} | node ~/.bash/scripts/color.js --color cyan 2>/dev/null
 }
 # nvm
 export NVM_NODEJS_ORG_MIRROR="http://npm.taobao.org/dist"
 export NVM_DIR=$HOME"/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-PS1="\u@node$cyan_start\$(get_node_version)$color_end:\w$red_start\$(get_git_branch)$color_end\n$red_start""➟ ""$color_end"
+PS1="\u@node\$(get_node_version):\w\$(get_git_branch)\n➟ "
 export PS1
 export PKG_CONFIG_PATH="/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig/"
 
 ## Android SDK
-ANDROID_HOME="/usr/local/opt/android-sdk"
+ANDROID_HOME="/usr/local/Cellar/android-sdk/24.4.1_1"
 if [ -d $ANDROID_HOME ]; then
   export ANDROID_HOME
   alias adb=$ANDROID_HOME"/platform-tools/adb"
