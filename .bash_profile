@@ -17,11 +17,6 @@ alias godoc="echo ➟ godoc is running … && open http://localhost:6060/doc/ &&
 alias update="curl -o- https://raw.githubusercontent.com/xudafeng/bash/master/install.sh | bash && source ~/.bash_profile"
 alias archive="cd ~/prjs/archive"
 alias book="cd ~/prjs/525"
-## mvn
-#MVNBIN="/opt/apache-maven-3.0.5/bin/mvn"
-#if [ -f $MVNBIN ]; then
-#  alias mvn=$MVNBIN
-#fi
 ## gcc
 alias gcc="/usr/bin/gcc"
 ## sublime
