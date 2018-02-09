@@ -18,10 +18,10 @@ alias update="curl -o- https://raw.githubusercontent.com/xudafeng/bash/master/in
 alias archive="cd ~/prjs/archive"
 alias book="cd ~/prjs/525"
 ## mvn
-MVNBIN="/opt/apache-maven-3.0.5/bin/mvn"
-if [ -f $MVNBIN ]; then
-  alias mvn=$MVNBIN
-fi
+#MVNBIN="/opt/apache-maven-3.0.5/bin/mvn"
+#if [ -f $MVNBIN ]; then
+#  alias mvn=$MVNBIN
+#fi
 ## gcc
 alias gcc="/usr/bin/gcc"
 ## sublime
