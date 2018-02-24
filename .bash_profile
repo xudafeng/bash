@@ -57,10 +57,13 @@ if [ -d $ANDROID_HOME ]; then
   alias adb=$ANDROID_HOME"/platform-tools/adb"
 fi
 ## JAVA HOME
-JAVA_HOME=`/usr/libexec/java_home -v '1.8*'`
-if [ -d $JAVA_HOME ]; then
-  export JAVA_HOME
-fi
+export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
+
+alias java7='export JAVA_HOME=$JAVA_7_HOME'
+alias java8='export JAVA_HOME=$JAVA_8_HOME'
+export JAVA_HOME=$JAVA_7_HOME
+
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
