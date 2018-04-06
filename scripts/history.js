@@ -23,6 +23,7 @@ Selector.prototype.format = function() {
     arr.shift();
     return arr.join(BLANK);
   });
+  this.list.pop();
   this.list = [...new Set(this.list)];
   this.keywords = this.keywords.join(BLANK);
 };
@@ -30,13 +31,16 @@ Selector.prototype.format = function() {
 Selector.prototype.render = function() {
   const hightlight = `\u001b[31m${this.keywords}\u001b[0m`;
   const result = this.list.filter(item => {
-    return !!~item.indexOf(this.keywords);
+    return !!~item.toLowerCase().indexOf(this.keywords.toLowerCase());
   }).slice(0, 5).map((item, key) => {
     return `${key}  ${item.replace(this.keywords, hightlight)}`;
   });
-  console.log('\n');
-  console.log(result.join('\n\n'));
-  console.log('\n');
+
+  if (result.length) {
+    console.log('\n');
+    console.log(result.join('\n\n'));
+    console.log('\n');
+  }
 };
 
 function HistoryStream(options) {
