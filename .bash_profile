@@ -15,6 +15,7 @@ alias gitpush="git push"
 alias qmake="~/prjs/Qt/5.3/clang_64/bin/qmake"
 alias godoc="echo ➟ godoc is running … && open http://localhost:6060/doc/ && godoc -http=:6060"
 alias update="curl -o- https://raw.githubusercontent.com/xudafeng/bash/master/install.sh | bash && source ~/.bash_profile"
+alias his="history | node ~/.bash/scripts/history.js"
 alias archive="cd ~/prjs/archive"
 alias book="cd ~/prjs/525"
 ## gcc
@@ -62,7 +63,7 @@ export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
 
 alias java7='export JAVA_HOME=$JAVA_7_HOME'
 alias java8='export JAVA_HOME=$JAVA_8_HOME'
-export JAVA_HOME=$JAVA_7_HOME
+export JAVA_HOME=$JAVA_8_HOME
 
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
