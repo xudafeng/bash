@@ -75,3 +75,9 @@ export HADOOP_HOME=/opt/hadoop-2.7.3
 export HADOOP_PREFIX=/opt/hadoop-2.7.3
 
 export PATH=$PATH:$HADOOP_HOME/bin
+
+export PATH=$PATH:$HOME/.cli
+
+export NVM_DIR="$HOME/.nvm"
+
+. "/usr/local/opt/nvm/nvm.sh"
