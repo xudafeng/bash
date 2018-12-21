@@ -52,11 +52,13 @@ export PS1
 export PKG_CONFIG_PATH="/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig/"
 
 ## Android SDK
-ANDROID_HOME="/usr/local/Cellar/android-sdk/24.4.1_1"
+ANDROID_HOME="/usr/local/share/android-sdk"
 if [ -d $ANDROID_HOME ]; then
   export ANDROID_HOME
   alias adb=$ANDROID_HOME"/platform-tools/adb"
+  export ANDROID_SDK_ROOT=$ANDROID_HOME
 fi
+
 ## JAVA HOME
 export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
 export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
@@ -81,3 +83,5 @@ export PATH=$PATH:$HOME/.cli
 export NVM_DIR="$HOME/.nvm"
 
 . "/usr/local/opt/nvm/nvm.sh"
+
+export PATH=$PATH:/usr/local/opt/flutter/bin
