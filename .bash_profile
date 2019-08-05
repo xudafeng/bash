@@ -85,3 +85,9 @@ export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
 export PATH=$PATH:/usr/local/opt/flutter/bin
+
+## local bash
+LOCAL_BASH_PROFILE="$HOME/.local_bash_profile"
+if [[ -f $LOCAL_BASH_PROFILE ]]; then
+  . $LOCAL_BASH_PROFILE
+fi
