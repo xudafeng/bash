@@ -91,3 +91,5 @@ LOCAL_BASH_PROFILE="$HOME/.local_bash_profile"
 if [[ -f $LOCAL_BASH_PROFILE ]]; then
   . $LOCAL_BASH_PROFILE
 fi
+
+export PYTHONPATH="${PYTHONPATH}:${HOME}/prjs/dl/models:${HOME}/prjs/dl/models/research/slim/"
