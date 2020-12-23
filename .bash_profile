@@ -10,16 +10,13 @@ fi
 ## aliases
 alias ls="ls -a -G"
 alias ll="ls -l"
-alias gitpull="git pull"
-alias gitpush="git push"
-alias qmake="~/prjs/Qt/5.3/clang_64/bin/qmake"
 alias godoc="echo ➟ godoc is running … && open http://localhost:6060/doc/ && godoc -http=:6060"
 alias update="curl -o- https://raw.githubusercontent.com/xudafeng/bash/master/install.sh | bash && source ~/.bash_profile"
 alias his="history | node ~/.bash/scripts/history.js"
 alias archive="cd ~/prjs/archive"
 alias book="cd ~/prjs/525"
-## gcc
-alias gcc="/usr/bin/gcc"
+alias clean="git branch | xargs git branch -D"
+alias gitpull="git pull"
 ## sublime
 SUBLIMEBIN="/Applications/Sublime.app/Contents/SharedSupport/bin/subl"
 if [ -f $SUBLIMEBIN ]; then
@@ -52,7 +49,7 @@ export PS1
 export PKG_CONFIG_PATH="/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig/"
 
 ## Android SDK
-ANDROID_HOME="/usr/local/share/android-sdk"
+ANDROID_HOME=$HOME"/Library/Android/sdk"
 if [ -d $ANDROID_HOME ]; then
   export ANDROID_HOME
   alias adb=$ANDROID_HOME"/platform-tools/adb"
