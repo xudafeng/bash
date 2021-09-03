@@ -56,14 +56,6 @@ if [ -d $ANDROID_HOME ]; then
   export ANDROID_SDK_ROOT=$ANDROID_HOME
 fi
 
-## JAVA HOME
-export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
-export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
-
-alias java7='export JAVA_HOME=$JAVA_7_HOME'
-alias java8='export JAVA_HOME=$JAVA_8_HOME'
-export JAVA_HOME=$JAVA_8_HOME
-
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
@@ -79,8 +71,6 @@ export PATH=$PATH:$HOME/.cli
 
 export NVM_DIR="$HOME/.nvm"
 
-. "/usr/local/opt/nvm/nvm.sh"
-
 export PATH=$PATH:/usr/local/opt/flutter/bin
 
 ## local bash
@@ -90,3 +80,5 @@ if [[ -f $LOCAL_BASH_PROFILE ]]; then
 fi
 
 export PYTHONPATH="${PYTHONPATH}:${HOME}/prjs/dl/models:${HOME}/prjs/dl/models/research/slim/"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(/opt/homebrew/bin/brew shellenv)"
