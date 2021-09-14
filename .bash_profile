@@ -83,3 +83,4 @@ export PYTHONPATH="${PYTHONPATH}:${HOME}/prjs/dl/models:${HOME}/prjs/dl/models/r
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 eval "$(/opt/homebrew/bin/brew shellenv)"
 . "$HOME/.cargo/env"
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
