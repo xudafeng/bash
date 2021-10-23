@@ -84,3 +84,5 @@ export PYTHONPATH="${PYTHONPATH}:${HOME}/prjs/dl/models:${HOME}/prjs/dl/models/r
 eval "$(/opt/homebrew/bin/brew shellenv)"
 . "$HOME/.cargo/env"
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+
+eval "$(direnv hook bash)"
