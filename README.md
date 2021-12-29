@@ -6,5 +6,5 @@
 [travis-url]: https://travis-ci.org/xudafeng/bash
 
 ```bash
-$ curl -o- https://raw.githubusercontent.com/xudafeng/bash/master/install.sh | bash
+curl -o- https://raw.githubusercontent.com/xudafeng/bash/master/install.sh | bash
 ```
