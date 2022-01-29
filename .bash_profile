@@ -5,10 +5,8 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 
 ## aliases
 alias ls="ls -a -G"
-alias ll="ls -l"
 alias update="curl -o- https://raw.githubusercontent.com/xudafeng/bash/master/install.sh | bash && source ~/.bash_profile"
 alias his="history | node ~/.bash/scripts/history.js"
-alias archive="cd ~/prjs/archive"
 alias clean="git branch | xargs git branch -D"
 alias gitpull="git pull"
 
@@ -52,8 +50,7 @@ fi
 ANDROID_HOME=$HOME"/Library/Android/sdk"
 if [ -d $ANDROID_HOME ]; then
   export ANDROID_HOME
-  alias adb=$ANDROID_HOME"/platform-tools/adb"
-  export ANDROID_SDK_ROOT=$ANDROID_HOME
+  export PATH=$PATH:$ANDROID_HOME/build-tools/32.0.0/:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/:$ANDROID_HOME/
 fi
 
 ## PKG_CONFIG
@@ -64,10 +61,18 @@ export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ## flutter
-export PATH=$PATH:/usr/local/opt/flutter/bin
+# export PATH=$PATH:/usr/local/opt/flutter/bin
 
 ## autojump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 ## direnv
 eval "$(direnv hook bash)"
+
+## java
+export JAVA_HOME="$(/usr/libexec/java_home)"
+
+# Setting PATH for Python 2.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
