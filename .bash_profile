@@ -12,9 +12,14 @@ alias gitpull="git pull"
 
 ## visual code
 VISUALSTUDIOCODE="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
-
 if [[ -f $VISUALSTUDIOCODE ]]; then
-  alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code ."
+  alias code="\"$VISUALSTUDIOCODE\" ."
+fi
+
+# cursor
+CURSOR_CODE="/Applications/Cursor.app/Contents/Resources/app/bin/code"
+if [[ -f $CURSOR_CODE ]]; then
+  alias code="\"$CURSOR_CODE\" ."
 fi
 
 ## git branch
@@ -72,7 +77,5 @@ eval "$(direnv hook bash)"
 ## java
 export JAVA_HOME="$(/usr/libexec/java_home)"
 
-# Setting PATH for Python 2.7
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
+export CXXFLAGS="-std=c++11"
+export CFLAGS="-std=c++11"
