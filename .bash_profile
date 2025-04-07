@@ -79,3 +79,9 @@ export JAVA_HOME="$(/usr/libexec/java_home)"
 
 export CXXFLAGS="-std=c++11"
 export CFLAGS="-std=c++11"
+
+MYSQL_VERSION="8.0"
+mysql_path="$(brew --prefix mysql@$MYSQL_VERSION 2>/dev/null)/bin"
+if [ -n "$mysql_path" ]; then
+  export PATH="$mysql_path:$PATH"
+fi
