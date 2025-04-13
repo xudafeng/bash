@@ -16,7 +16,7 @@ if [[ -f $VISUALSTUDIOCODE ]]; then
   alias code="\"$VISUALSTUDIOCODE\" ."
 fi
 
-# cursor
+## cursor
 CURSOR_CODE="/Applications/Cursor.app/Contents/Resources/app/bin/code"
 if [[ -f $CURSOR_CODE ]]; then
   alias code="\"$CURSOR_CODE\" ."
@@ -80,8 +80,13 @@ export JAVA_HOME="$(/usr/libexec/java_home)"
 export CXXFLAGS="-std=c++11"
 export CFLAGS="-std=c++11"
 
+## mysql
 MYSQL_VERSION="8.0"
 mysql_path="$(brew --prefix mysql@$MYSQL_VERSION 2>/dev/null)/bin"
 if [ -n "$mysql_path" ]; then
   export PATH="$mysql_path:$PATH"
 fi
+
+## uv
+# curl -LsSf https://astral.sh/uv/install.sh | sh
+source $HOME/.local/bin/env
