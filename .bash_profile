@@ -9,6 +9,7 @@ alias update="curl -o- https://raw.githubusercontent.com/xudafeng/bash/master/in
 alias his="history | node ~/.bash/scripts/history.js"
 alias clean="git branch | xargs git branch -D"
 alias gitpull="git pull"
+alias python="python3"
 
 ## visual code
 VISUALSTUDIOCODE="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
@@ -17,7 +18,7 @@ if [[ -f $VISUALSTUDIOCODE ]]; then
 fi
 
 ## cursor
-CURSOR_CODE="/Applications/Cursor.app/Contents/Resources/app/bin/code"
+CURSOR_CODE="/Applications/Cursor_remove.app/Contents/Resources/app/bin/code"
 if [[ -f $CURSOR_CODE ]]; then
   alias code="\"$CURSOR_CODE\" ."
 fi
@@ -75,7 +76,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(direnv hook bash)"
 
 ## java
-export JAVA_HOME="$(/usr/libexec/java_home)"
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 
 export CXXFLAGS="-std=c++11"
 export CFLAGS="-std=c++11"
