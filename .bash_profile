@@ -18,7 +18,7 @@ if [[ -f $VISUALSTUDIOCODE ]]; then
 fi
 
 ## cursor
-CURSOR_CODE="/Applications/Cursor_remove.app/Contents/Resources/app/bin/code"
+CURSOR_CODE="/Applications/Cursor.app/Contents/Resources/app/bin/code"
 if [[ -f $CURSOR_CODE ]]; then
   alias code="\"$CURSOR_CODE\" ."
 fi
@@ -91,3 +91,4 @@ fi
 ## uv
 # curl -LsSf https://astral.sh/uv/install.sh | sh
 source $HOME/.local/bin/env
+. "$HOME/.local/bin/env"
