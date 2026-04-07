@@ -44,6 +44,12 @@ export NVM_DIR="$HOME/.nvm"
 # PS
 PS1="\u@node\$(get_node_version):\w\$(get_git_branch)\n➟ "
 export PS1
+
+## Ghostty: report cwd via OSC 7 so new tabs inherit working directory
+__ghostty_osc7() {
+  printf '\e]7;file://%s%s\a' "$HOSTNAME" "$PWD"
+}
+PROMPT_COMMAND="__ghostty_osc7${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
 export PKG_CONFIG_PATH="/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig/"
 
 ## local bash profile
