@@ -23,6 +23,11 @@ if [[ -f $CURSOR_CODE ]]; then
   alias code="\"$CURSOR_CODE\" ."
 fi
 
+ ## Zed
+if command -v zed >/dev/null 2>&1; then
+  alias code='zed .'
+fi
+
 ## git branch
 get_git_branch() {
   echo $(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/') | node ~/.bash/scripts/color.js --color red 2>/dev/null
