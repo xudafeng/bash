@@ -1,3 +1,5 @@
+
+
 # My bash script.
 
 [![build status][travis-image]][travis-url]
@@ -8,3 +10,5 @@
 ```bash
 curl -o- https://raw.githubusercontent.com/xudafeng/bash/master/install.sh | bash
 ```
+
+Note: `install.sh` removes any existing `~/.bash` and `~/.bash_profile`.
