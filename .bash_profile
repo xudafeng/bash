@@ -23,9 +23,16 @@ if [[ -f $CURSOR_CODE ]]; then
   alias code="\"$CURSOR_CODE\" ."
 fi
 
- ## Zed
-if command -v zed >/dev/null 2>&1; then
-  alias code='zed .'
+## Zed
+if [[ -x "$HOME/.local/bin/zed" ]]; then
+  unalias code 2>/dev/null
+  code() {
+    if [[ $# -eq 0 ]]; then
+      "$HOME/.local/bin/zed" .
+    else
+      "$HOME/.local/bin/zed" "$@"
+    fi
+  }
 fi
 
 ## git branch
