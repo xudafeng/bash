@@ -24,13 +24,13 @@ if [[ -f $CURSOR_CODE ]]; then
 fi
 
 ## Zed
-if [[ -x "$HOME/.local/bin/zed" ]]; then
+if [[ -x "/Applications/Zed.app/Contents/MacOS/cli" ]]; then
   unalias code 2>/dev/null
-  code() {
+  function code {
     if [[ $# -eq 0 ]]; then
-      "$HOME/.local/bin/zed" .
+      "/Applications/Zed.app/Contents/MacOS/cli" .
     else
-      "$HOME/.local/bin/zed" "$@"
+      "/Applications/Zed.app/Contents/MacOS/cli" "$@"
     fi
   }
 fi
